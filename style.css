@@ -7,3 +7,30 @@
 .quick-actions{display:flex;gap:12px;margin-top:12px}.quick-actions .button{justify-content:center;gap:10px;min-width:130px}.quick-actions svg{width:17px;height:15px}.quick-actions a:focus-visible{outline:2px solid var(--yellow);outline-offset:3px}@media(max-width:460px){.quick-actions .button{min-width:0;flex:1}}
 
 img.star{width:35px;height:35px;display:block;flex:none}
+
+/* Gentle entrance and independent feature hover states. */
+@keyframes glow-enter{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+@keyframes glow-background{from{opacity:.65;transform:scale(1.015)}to{opacity:1;transform:scale(1)}}
+@media (prefers-reduced-motion:no-preference){
+ .hero-art{animation:glow-background 650ms ease-out both}
+ .hero-content .eyebrow,.hero-content h1,.hero-content>p,.hero-actions,.quick-actions{animation:glow-enter 400ms ease-out both}
+ .hero-content h1{animation-delay:60ms}
+ .hero-content>p:not(.download-note){animation-delay:120ms}
+ .hero-actions{animation-delay:180ms}
+ .quick-actions,.hero-content .download-note{animation-delay:240ms}
+ .intro,.features,.status,.community,.support{transition:opacity 380ms ease,transform 380ms ease}
+ .reveal-pending{opacity:0;transform:translateY(14px)}
+}
+.features{gap:10px;border:0}
+.features article,.features article+article{position:relative;padding:30px 22px 34px;border:1px solid #292a30;border-radius:5px;background:#17181d;transform-origin:center;transition:transform 280ms ease,background-color 280ms ease,border-color 280ms ease}
+.features .feature-icon{display:inline-flex;align-items:center;justify-content:center;width:42px;height:42px;color:var(--yellow);border:1px solid #51482d;border-radius:4px;transition:transform 280ms ease,border-color 280ms ease}
+.feature-icon svg{width:23px;height:23px}
+.features h3{margin-top:32px}
+@media (hover:hover) and (prefers-reduced-motion:no-preference){
+ .features article:hover{z-index:1;transform:scale(1.03);background:#202126;border-color:#a98e42}
+ .features article:hover .feature-icon{transform:translateY(-3px);border-color:#a98e42}
+}
+.top nav a,.nav-cta,footer a,.button{transition:color 240ms ease,border-color 240ms ease,background-color 240ms ease,transform 240ms ease}
+.nav-cta:hover,.button.secondary:hover{border-color:#a98e42;background-color:#242321}
+@media(max-width:800px){.features article,.features article+article{padding:25px 20px!important;border:1px solid #292a30}}
+@media(prefers-reduced-motion:reduce){.hero-art,.hero-content .eyebrow,.hero-content h1,.hero-content>p,.hero-actions,.quick-actions{animation:none}.intro,.features,.status,.community,.support,.features article,.features .feature-icon,.top nav a,.nav-cta,footer a,.button{transition:none}.reveal-pending{opacity:1;transform:none}.button:hover{transform:none}}
