@@ -36,3 +36,19 @@ img.star{width:35px;height:35px;display:block;flex:none}
 @media(prefers-reduced-motion:reduce){.hero-art,.hero-content .eyebrow,.hero-content h1,.hero-content>p,.hero-actions,.quick-actions{animation:none}.intro,.features,.status,.community,.support,.features article,.features .feature-icon,.top nav a,.nav-cta,footer a,.button{transition:none}.reveal-pending{opacity:1;transform:none}.button:hover{transform:none}}
 
 .features{grid-template-columns:repeat(3,minmax(0,1fr))}@media (hover:hover) and (prefers-reduced-motion:no-preference){.features article:hover{transform:translateY(-5px) scale(1.04)}}@media(max-width:800px){.features{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:460px){.features{grid-template-columns:1fr}}
+
+/* Animações da Home e dos recursos. */
+@media (prefers-reduced-motion:no-preference){
+ .hero-content h1,.hero-content>p:not(.download-note),.hero-actions,.quick-actions{animation:glow-enter 700ms ease-out both}
+ .hero-content h1{animation-delay:0ms}
+ .hero-content>p:not(.download-note){animation-delay:150ms}
+ .hero-actions{animation-delay:300ms}
+ .quick-actions{animation-delay:450ms}
+ .features article,.features article+article{transition:transform 300ms ease,background-color 300ms ease,border-color 300ms ease}
+ .features .feature-icon{transition:transform 300ms ease,border-color 300ms ease}
+ .intro,.features,.status,.community,.support{transition:opacity 700ms ease,transform 700ms ease}
+}
+@media (hover:hover) and (prefers-reduced-motion:no-preference){
+ .features article:hover,.features article+article:hover{z-index:1;transform:translateY(-6px) scale(1.06);background:#24252b;border-color:#f4c542}
+ .features article:hover .feature-icon{transform:translateY(-4px);border-color:#f4c542}
+}
